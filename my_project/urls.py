@@ -21,6 +21,7 @@ from about import views as about_views
 
 
 urlpatterns = [
+    path("about/", include("about.urls"), name="about-urls"),
     path('hello/', index_views.index, name='index'),
     path('summernote/', include('django_summernote.urls')),
     path("", include("blog.urls"), name="blog-urls"),
