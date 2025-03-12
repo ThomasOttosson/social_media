@@ -43,7 +43,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181;
+    background-color: #fac20c;
 }
 
 .scale {
@@ -52,7 +52,7 @@ body {
 }
 
 .author {
-    color: white;
+    color: black;
     margin: 4px;
     text-transform: uppercase;
 }
@@ -102,7 +102,12 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: #fac20c;
+}
+
+.page-link:hover {
+    background-color: #fac20c;
+    color: black;
 }
 
 .post-title {
@@ -117,14 +122,15 @@ body {
 
 .btn-signup,
 .btn-edit {
-    background-color: #188181;
-    color: #fff;
+    background-color: #fac20c;
+    color: black;
 }
 
 .btn-signup:hover,
+.btn-edit:hover,
 .btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
+    background-color: #f3d572;
+    color: black;
 }
 
 .link {
