@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
+from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 from .forms import CommentForm
-from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -13,6 +14,25 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 6
+
+    def get(self, request, *args, **kwargs):
+        """
+        Override get method to handle htmx requests for infinite scrolling
+        """
+        response = super().get(request, *args, **kwargs)
+
+        # Check if this is an htmx request
+        if request.headers.get('HX-Request') == 'true':
+            # For htmx requests, only return the post list content
+            # This avoids sending the entire page layout again
+            return render(
+                request,
+                "blog/includes/post_list_content.html",
+                self.get_context_data(),
+            )
+
+        # For regular requests, return the full page
+        return response
 
 
 def post_detail(request, slug):
@@ -44,10 +64,19 @@ def post_detail(request, slug):
             comment = comment_form.save(commit=False)
             comment.author = request.user
             comment.post = post
+
+            # Check if this is a reply to another comment
+            parent_id = request.POST.get('parent_id')
+            if parent_id:
+                comment.parent = get_object_or_404(Comment, id=parent_id)
+                success_message = 'Reply submitted and awaiting approval'
+            else:
+                success_message = 'Comment submitted and awaiting approval'
+
             comment.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
+                success_message
             )
 
     comment_form = CommentForm()
@@ -64,8 +93,6 @@ def post_detail(request, slug):
     )
 
 
-# this requires user to be logged in
-@login_required
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
@@ -90,21 +117,49 @@ def comment_edit(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-# this requires user to be logged in
-@login_required
 def comment_delete(request, slug, comment_id):
     """
     view to delete comment
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
-    comment = get_object_or_404(Comment, pk=comment_id)
 
-    if comment.author == request.user:
-        comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
-    else:
-        messages.add_message(request, messages.ERROR,
-                             'You can only delete your own comments!')
+    # Try to get the comment, regardless of approval status
+    try:
+        comment = Comment.objects.get(pk=comment_id)
+
+        # Check if user is the author of the comment
+        if comment.author == request.user:
+            comment.delete()
+            messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        else:
+            messages.add_message(request, messages.ERROR,
+                                 'You can only delete your own comments!')
+    except Comment.DoesNotExist:
+        messages.add_message(request, messages.ERROR, 'Comment not found!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+@login_required
+def post_like(request, slug):
+    """
+    View to handle liking/unliking posts
+    """
+    post = get_object_or_404(Post, slug=slug)
+
+    # Check if the user has already liked the post
+    if post.likes.filter(id=request.user.id).exists():
+        # User has already liked the post, so remove the like
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        # User hasn't liked the post, so add the like
+        post.likes.add(request.user)
+        liked = True
+
+    # Return JSON response with updated like count and status
+    return JsonResponse({
+        'likes_count': post.number_of_likes(),
+        'liked': liked
+    })
