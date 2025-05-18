@@ -1,0 +1,138 @@
+/* Custom color scheme: black text, white background, gold buttons */
+
+:root {
+    --primary-text-color: #000000;
+    --background-color: #FFFFFF;
+    --button-color: #FFD700; /* Gold */
+    --button-hover-color: #F4C430; /* Darker gold for hover states */
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius: 12px;
+}
+
+/* Apply Poppins font throughout the website */
+body, p, h1, h2, h3, h4, h5, h6, .navbar-text, .post-subtitle, .author, .post-link, .link, button, input, textarea, .btn {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+
+/* Background color */
+body, .main-bg, .light-bg, .card, .masthead-text {
+    background-color: var(--background-color) !important;
+}
+
+/* Modern card styling */
+.card {
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--card-shadow) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    border: none !important;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Button styling */
+.btn-signup, .btn-edit, .btn-primary, #submitButton, .btn-delete {
+    background-color: var(--button-color) !important;
+    color: var(--primary-text-color) !important;
+    border-color: var(--button-color) !important;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn-signup:hover, .btn-edit:hover, .btn-primary:hover, #submitButton:hover, .btn-delete:hover {
+    background-color: var(--button-hover-color) !important;
+    color: var(--primary-text-color) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Masthead styling */
+.masthead {
+    border-radius: var(--border-radius) !important;
+    overflow: hidden !important;
+    box-shadow: var(--card-shadow) !important;
+    margin-bottom: 2rem !important;
+}
+
+.masthead-text {
+    color: var(--primary-text-color) !important;
+    padding: 2rem !important;
+}
+
+.masthead-image:after {
+    background: var(--background-color) !important;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--button-color) !important;
+    color: var(--primary-text-color) !important;
+}
+
+/* Links */
+.post-link:hover, .page-link {
+    color: var(--button-color) !important;
+}
+
+.page-link:hover {
+    background-color: var(--button-color) !important;
+    color: var(--primary-text-color) !important;
+}
+
+/* Like button */
+.btn-like {
+    color: var(--primary-text-color) !important;
+    transition: transform 0.2s ease !important;
+}
+
+.btn-like:hover {
+    transform: scale(1.2) !important;
+}
+
+.btn-like.liked {
+    color: var(--button-color) !important;
+}
+
+/* Form focus states */
+#commentForm textarea:focus {
+    border-color: var(--button-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25) !important;
+}
+
+/* Image flash */
+.image-flash {
+    background-color: var(--button-color) !important;
+    border-radius: 4px !important;
+}
+
+/* Comments section styling */
+.comments {
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+    background-color: #f9f9f9 !important;
+    transition: transform 0.2s ease !important;
+}
+
+.comments:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Post title styling */
+.post-title {
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+}
+
+.post-subtitle {
+    font-weight: 400 !important;
+    opacity: 0.8 !important;
+}
