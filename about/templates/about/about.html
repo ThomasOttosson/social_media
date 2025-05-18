@@ -1,46 +1,182 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load crispy_forms_tags %}
-
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %} 
 {% block content %}
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12 col-md-4 text-center">
-            {% if "placeholder" in about.profile_image.url %}
-            <img src="{% static 'images/nobody.jpg' %}" class="profile_image" alt="placeholder image" >
-            {% else %}
-            <img src="{{ about.profile_image.url }}" class="profile_image" alt="{{ about.title }}">
-            {% endif %}
+<!-- Hero Section -->
+<div class="container-fluid p-0">
+  <div class="row g-0">
+    <div class="col-12 position-relative overflow-hidden">
+      <img
+        src="{% static 'images/business_hero.jpg' %}"
+        class="img-fluid w-100 hero-image"
+        alt="Business News"
+      />
+      <div
+        class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+        style="
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.5) 100%
+          );
+        "
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-10 offset-md-1 text-center text-white">
+              <h1
+                class="display-3 fw-bold mb-4"
+                style="
+                  letter-spacing: 1px;
+                  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                "
+              >
+                Business News 4 All
+              </h1>
+              <p class="lead fs-4 mb-4 fw-light">
+                We are a newsletter site related to business events/stories such
+                as:
+              </p>
+              <div class="row mb-4 g-4">
+                <div class="col-md-4">
+                  <div
+                    class="p-3 rounded hero-card"
+                    onmouseover="this.style.transform='translateY(-5px)'"
+                    onmouseout="this.style.transform='translateY(0)'"
+                  >
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Stories
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Case studies
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        History
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Deals
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Funding
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div
+                    class="p-3 rounded hero-card"
+                    onmouseover="this.style.transform='translateY(-5px)'"
+                    onmouseout="this.style.transform='translateY(0)'"
+                  >
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Management
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Commercials
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        New inventions
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Litigation
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div
+                    class="p-3 rounded hero-card"
+                    onmouseover="this.style.transform='translateY(-5px)'"
+                    onmouseout="this.style.transform='translateY(0)'"
+                  >
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Accounting & bookkeeping
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Government Contracts
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Interviews
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Events
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <p class="lead fs-5 fw-light mt-4 mb-0 animated-content">
+                If you have news that you want to share with us, contact us in
+                the form below.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col-12 col-md-8">
-            <h2>{{ about.title }}</h2>
-            {{ about.content | safe }}
-        </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col text-right">
-          <!-- Updated on field goes in here -->
-    
-          <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 my-5">
-            <h2>Let's collaborate!</h2>
-            <p>I believe in the power of shared knowledge and collective effort.
-                Whether you have a project in mind, wish to co-author
-                an article, or simply want to brainstorm some ideas,
-                I'm excited to hear from you. Fill out the form
-                and we can get the ball rolling!</p>
+  </div>
+</div>
 
-            <!-- add your form here. Your submit button should 
-                                have the classes of btn, btn-secondary -->
-            <form method="post">
-                {{ collaborate_form | crispy }}
-                {% csrf_token %}
-                <button class="btn btn-warning" type="submit">Submit</button>
-            </form>
-        </div>
+<!-- Hero and animation styles moved to custom.css -->
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 col-md-4 text-center">
+      {% if "placeholder" in about.profile_image.url %}
+      <img
+        src="{% static 'images/nobody.jpg' %}"
+        class="profile_image"
+        alt="placeholder image"
+      />
+      {% else %}
+      <img
+        src="{{ about.profile_image.url }}"
+        class="profile_image"
+        alt="{{ about.title }}"
+      />
+      {% endif %}
     </div>
+    <div class="col-12 col-md-8">
+      <h2>{{ about.title }}</h2>
+      {{ about.content | safe }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-right">
+      <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 my-5">
+      <h2>Let's collaborate!</h2>
+      <p>
+        I believe in the power of shared knowledge and collective effort.
+        Whether you have a project in mind, wish to co-author an article, or
+        simply want to brainstorm some ideas, I'm excited to hear from you. Fill
+        out the form and we can get the ball rolling!
+      </p>
+
+      <form method="post">
+        {{ collaborate_form | crispy }} {% csrf_token %}
+        <button class="btn btn-warning" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
 </div>
 {% endblock content %}
