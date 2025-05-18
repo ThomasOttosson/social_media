@@ -34,6 +34,10 @@ body {
     background-color: transparent;
 }
 
+.card-title {
+    font-size: 22px;
+    margin: 15px 0;
+}
 .image-container {
     position: relative;
 }
@@ -112,9 +116,13 @@ body {
 
 .post-title {
     margin-top: 10%;
-    margin-left: 5%;
+    /* margin-left: 5%; */
 }
-
+#id_remember {
+    padding: 0 !important;
+    height: 20px !important;
+    width: 20px !important;
+}
 .post-subtitle {
     margin-left: 5%;
     color: lightgray;
@@ -145,9 +153,12 @@ body {
 }
 
 .btn-like {
-    color: #E84610;
     border: none;
     background: transparent;
+    color: #E84610;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 .btn-delete {
@@ -160,6 +171,22 @@ body {
     color: #E84610;
     background: transparent;
     border: none;
+    transform: scale(1.2);
+}
+
+.btn-like.liked {
+    color: #E84610;
+    font-weight: bold;
+}
+
+.btn-like:focus {
+    outline: none;
+}
+
+#likes-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .faded {
@@ -168,4 +195,39 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+/* Comment form styling */
+#commentForm textarea {
+    min-height: 150px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+    font-family: inherit;
+}
+
+#commentForm textarea:focus {
+    border-color: #fac20c;
+    box-shadow: 0 0 0 0.2rem rgba(250, 194, 12, 0.25);
+    outline: none;
+}
+
+#submitButton {
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#commentForm .form-group {
+    margin-bottom: 20px;
 }

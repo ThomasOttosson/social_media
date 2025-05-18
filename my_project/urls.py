@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from hello_world import views as index_views
 from about import views as about_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -28,4 +30,5 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path("", include("blog.urls"), name="blog-urls"),
     path('about/', about_views.about_me, name='about'),
+    path('users/', include('users.urls')),
 ]

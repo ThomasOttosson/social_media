@@ -1,0 +1,22 @@
+/* Custom CSS for Reddit-style blog grid */
+
+/* Center the blog posts container */
+#posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style for each blog post card */
+.htmx-added {
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .htmx-added {
+        max-width: 100%;
+    }
+}
