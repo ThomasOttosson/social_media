@@ -65,6 +65,17 @@
     color: #333;
 }
 
+/* Author link styling */
+.author-link {
+    color: var(--button-color) !important;
+    transition: color 0.2s ease;
+}
+
+.author-link:hover {
+    color: var(--button-hover-color) !important;
+    text-decoration: underline !important;
+}
+
 .post-date {
     color: #666;
 }
@@ -131,7 +142,7 @@
 }
 
 .btn-like.liked i {
-    color: #ff4757;
+    color: red !important;
 }
 
 /* Comments section */

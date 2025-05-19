@@ -96,9 +96,7 @@ body, .main-bg, .light-bg, .card, .masthead-text {
     transform: scale(1.2) !important;
 }
 
-.btn-like.liked {
-    color: var(--button-color) !important;
-}
+
 
 /* Form focus states */
 #commentForm textarea:focus {
@@ -135,4 +133,33 @@ body, .main-bg, .light-bg, .card, .masthead-text {
 .post-subtitle {
     font-weight: 400 !important;
     opacity: 0.8 !important;
+}
+
+/* Hidden elements */
+.hidden {
+    display: none !important;
+}
+
+/* Profile image styling */
+.rounded-circle.account-img {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: cover !important;
+}
+
+/* Hero image styling */
+.hero-image {
+    max-height: 500px !important;
+    object-fit: cover !important;
+    filter: brightness(0.9) !important;
+}
+
+/* Animation effects */
+.animated-content {
+    animation: fadeIn 1s ease-in-out !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
