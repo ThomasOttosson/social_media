@@ -2,7 +2,7 @@
 
 The idea behind this project was to create a business newspaper site which has a positive influnce amongs it's users. Very often when i read newspapers i see a combined way of reporting news with negative storys and positive storys. With Business News 4 all we aim to focus on positive storys only where the user can learn something new directly or indirectly through storys, events, people and many other examples. With this added value for the user for each post we aim to gain more revisits since our target market audience are entreprenuers who wants to expand their knowledge in entreprenuership and business.
 
-## Features
+# Features
 
 The navigation bar contains:
 
@@ -36,11 +36,21 @@ At the bottom of the post the user can see a timestamp of when the post was crea
 
 When the user scrolls down in the page then more and more news article posts will come up and the project has an infinity scroll so the user doesn't have to press any buttons to see more posts since they come up automatically.
 
+In the top right corner there is a small text to tell the user if they are logged in or not.
+
 ## Deeper dive into the news article post
 
 When the user has clicked on the news article they will be forwarded to a new page which is the full news article post. Inside the news article the user will see a big rectangular form which contains the the title, news article picture, timestamp of when the post was created and a link to the authors profile.
 
-When the user scrolls down they will see the full news article text in regards to the subject. At the bottom of the page the user will be able to see how many likes the post has and comments that has been made by other users. If the user is logged in they will be able to like or comment on the post or reply to other comments that other users has done. The user can also click on the others users profiles that has made comments and see more details about the users.
+When the user scrolls down they will see the full news article text in regards to the subject. At the bottom of the page the user will be able to see how many likes the post has and comments that has been made by other users. If the user is logged in they will be able to like or comment on the post or reply to other comments that other users has done. The user also has the options of deleting or editing their comments based on if the comment is connected to their own account.
+
+The user can also click on the others users profiles that has made comments and see more details about the users.
+
+## User profiles
+
+Each user who has registered an account is able to create their own user profile which is visable to the public if the user has commented on any of the news article posts. In the user profile the users are able to see the news article posts they have created, profile picture and a biography about the user profile.
+
+At the bottom of the page there is an edit button so the user can edit themselves on how they want their bigropahy to look like and also choose to upload a profile picture. The users will also be able to see when they became a member on the website aswell.
 
 ## Sidebar(Homepage)
 
@@ -55,6 +65,44 @@ The footer is visable on all pages and contains:
 * A text which says: Copyright 2025 Business News 4 all.
 
 * A yellow background which is the bootstrap class: bg-warning.
+
+## The About page
+
+The first thing that happens when a user clicks on the about page in the navigation menu is that they will be forwarded to a new page. On the about page the user will see a big images of a computer screen with some bulletpoints of what ares the newspaper focuses on in their reporting.
+
+Under that the user will be able to fill in a form if the user is interested in a potenial collaboration. In that form the user needs to fill in name, email and a message where they explain their intention.
+
+## The signup page
+
+The sign up page contains a form four field where one is optional and the fields in the form consists of:
+
+* Username
+
+* Email(optional)
+
+* Password
+
+* Password(again)
+
+Below the fields the user can press a sign up button and beneath the sign up button there is a text where the user can click on a link to the login page if the user already has an account registered. The form also has some rules which are the following in order to register an account: 
+
+* Your password can’t be too similar to your other personal information.
+* Your password must contain at least 8 characters.
+* Your password can’t be a commonly used password.
+* Your password can’t be entirely numeric.
+
+## The login page
+
+In the navigation menu when the user click on the login page link button they will be forwarded to a login form where they have to enter their username and password. The login form also has sign in button and beneath that there is a text where the user can press a link so they will be forwarded to the the sign up page if the user doesn't have an account already.
+
+## The logout page
+
+When the user is logged in a new alternative will come in the navigation which the logout link button. When the user clicks on that button the will be forwarded to the logout page which only consists of one simple signout button and a text which says: 
+
+"Sign Out"
+"Are you sure you want to sign out?".
+
+This give the user a simple and clean solution to log out from the website.
 
 ## Deployment
 
