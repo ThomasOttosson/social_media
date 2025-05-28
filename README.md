@@ -1,8 +1,13 @@
 # Business News 4 all
 
+![homepage_social](./assets/images/homepage.111.png)
+
+
 The idea behind this project was to create a business newspaper site which has a positive influnce amongs it's users. Very often when i read newspapers i see a combined way of reporting news with negative storys and positive storys. With Business News 4 all we aim to focus on positive storys only where the user can learn something new directly or indirectly through storys, events, people and many other examples. With this added value for the user for each post we aim to gain more revisits since our target market audience are entreprenuers who wants to expand their knowledge in entreprenuership and business.
 
 # Features
+
+![navigation](./assets/images/navigation_menu.png)
 
 The navigation bar contains:
 
@@ -16,6 +21,8 @@ The navigation bar contains:
 
 * On the right corner of the navigation bar the user will see a small text quote which says: Business News 4 all - The best buiness newspaper for you! This quote disappears for screens under 576px in the navbar.
 
+![loggedin](./assets/images/logged_in.png)
+
 If the user is already logged in they will see:
 
 * The home page link button which is the BN4|all logo.
@@ -27,6 +34,8 @@ If the user is already logged in they will see:
 * On the right corner of the navigation bar the user will see a small text quote which says: Business News 4 all - The best buiness newspaper for you! This quote disappears for screens under 576px in the navbar.
 
 ## News article posts outlook(Homepage)
+
+![news_article](./assets/images/newsarticle_post.png)
 
 The posts are shaped in a rectangular form similar to an "Ipad" wihout the sharp edges. Each post contains a picture in regards to the subject and a small rectangular yellow form with the title of the author who wrote the artice. The name of the author is a also a link which the user can click on to see more info about the author and other posts the author has uploaded.
 
@@ -40,6 +49,8 @@ In the top right corner there is a small text to tell the user if they are logge
 
 ## Deeper dive into the news article post
 
+![deeper_dive](./assets/images/deeper_dive.png)
+
 When the user has clicked on the news article they will be forwarded to a new page which is the full news article post. Inside the news article the user will see a big rectangular form which contains the the title, news article picture, timestamp of when the post was created and a link to the authors profile.
 
 When the user scrolls down they will see the full news article text in regards to the subject. At the bottom of the page the user will be able to see how many likes the post has and comments that has been made by other users. If the user is logged in they will be able to like or comment on the post or reply to other comments that other users has done. The user also has the options of deleting or editing their comments based on if the comment is connected to their own account.
@@ -48,15 +59,21 @@ The user can also click on the others users profiles that has made comments and 
 
 ## User profiles
 
+![user_profile](./assets/images/user_profile.png)
+
 Each user who has registered an account is able to create their own user profile which is visable to the public if the user has commented on any of the news article posts. In the user profile the users are able to see the news article posts they have created, profile picture and a biography about the user profile.
 
 At the bottom of the page there is an edit button so the user can edit themselves on how they want their bigropahy to look like and also choose to upload a profile picture. The users will also be able to see when they became a member on the website aswell.
 
 ## Sidebar(Homepage)
 
+![sidebar](./assets/images/side_bar.png)
+
 To the right side of the news article posts the user will see a sidebar where they can see the most liked posts. On a computer screen the sidebar will always follow the users scroll movements and still be stuck to the right side. In the sidebar the user can see five posts in total and timestamps of the posts. If the users clicks on any of these posts they will be forwarded to the full news article post. On a mobile screen the sidebar will only be visable at the bottom of the page since it would otherwise cover to much of the small screen sizes.
 
 ## Footer
+
+![footer](./assets/images/footer_footer.png)
 
 The footer is visable on all pages and contains:
 
@@ -68,11 +85,17 @@ The footer is visable on all pages and contains:
 
 ## The About page
 
+![about_page](./assets/images/about_page.png)
+
 The first thing that happens when a user clicks on the about page in the navigation menu is that they will be forwarded to a new page. On the about page the user will see a big images of a computer screen with some bulletpoints of what ares the newspaper focuses on in their reporting.
+
+![about_page2](./assets/images/about-page2.png)
 
 Under that the user will be able to fill in a form if the user is interested in a potenial collaboration. In that form the user needs to fill in name, email and a message where they explain their intention.
 
 ## The signup page
+
+![register](./assets/images/register.png)
 
 The sign up page contains a form four field where one is optional and the fields in the form consists of:
 
@@ -93,9 +116,13 @@ Below the fields the user can press a sign up button and beneath the sign up but
 
 ## The login page
 
+![login](./assets/images/login.png)
+
 In the navigation menu when the user click on the login page link button they will be forwarded to a login form where they have to enter their username and password. The login form also has sign in button and beneath that there is a text where the user can press a link so they will be forwarded to the the sign up page if the user doesn't have an account already.
 
 ## The logout page
+
+![logout](./assets/images/logout.png)
 
 When the user is logged in a new alternative will come in the navigation which the logout link button. When the user clicks on that button the will be forwarded to the logout page which only consists of one simple signout button and a text which says: 
 

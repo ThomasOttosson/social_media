@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from .forms import CommentForm
 from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
@@ -78,6 +81,7 @@ def post_detail(request, slug):
                 request, messages.SUCCESS,
                 success_message
             )
+            return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
     comment_form = CommentForm()
 
