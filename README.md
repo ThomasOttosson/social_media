@@ -135,6 +135,28 @@ When the user is logged in a new alternative will come in the navigation which t
 
 This give the user a simple and clean solution to log out from the website.
 
+## Manual Testing 
+
+| Action                                      | Expectation                                              | Pass/Fail |
+|---------------------------------------------|----------------------------------------------------------|-----------|
+| Homepage links. | User is expected to be forwarded to the homepage. | Pass |
+| About page links.               | User is expected to be forwarded to to the about page. | Pass |
+| Signup/register page links. | User is expected to be forwarded to to the register page.  | Pass |
+| Login page links. |  User is expected to be forwarded to the login page. | Pass |
+| Logout page links. | User is expected to be forwarded to the logout page. | Pass |
+| About form/Lets collaborate form. | User is expected to fill in name, email, message and sumbit the form through a button.   | Pass |
+| Register page form | User is expected to fill in username, email(optional), password, password(again) and register through a button. | Pass |
+| Login page form | User is expected to fill in their registered username, password and click on the login button. | Pass |
+| Logout/signout page button | User is expected to be logged out from the page. | Pass |
+| Homepage Infinity scroll | User is expected to see 6 news article post before the infinity scrolls loads up 6 more posts when they scroll down the page. | Pass |
+| News article post links. | User is expected to be forwarded to the news full article blog posts when they click on the news article posts small text description about the news article. | Pass |
+| User profile and author links. | User is expected to be forwarded to the user profile of the user or auther when they click on those related links/events.  | Pass |
+| Like button. | User is expected to see the number of total likes of the post increse and add a red color. | Pass |
+| Comment form on the news article posts. | User is expected to add a comment to the news article post through a textfield and button. After the comment process is done the comment will be awaiting an approval from an admin. | Pass |
+| Reply to a comment button. | User is expected to see a new textfield come up under the choosed comment where they can either fulfill the reply or cancel the process through buttons. | Pass |
+| Delete comment button. | User is expected to see a pop up window come up which asks them another time if they are sure or not to the delete the comment. The user can choose to delete the comment or cancel the process through buttons. | Pass |
+
+
 ## Deployment
 
 * The deployment was made through github and Heroku. The step by step process where the following on github: Settings --> Pages --> Source --> Deploy from a branch --> Main --> /(root) --> Save.
