@@ -53,6 +53,8 @@ In the top right corner there is a small text to tell the user if they are logge
 
 When the user has clicked on the news article they will be forwarded to a new page which is the full news article post. Inside the news article the user will see a big rectangular form which contains the the title, news article picture, timestamp of when the post was created and a link to the authors profile.
 
+![comments](./assets/images/comment_social.png)
+
 When the user scrolls down they will see the full news article text in regards to the subject. At the bottom of the page the user will be able to see how many likes the post has and comments that has been made by other users. If the user is logged in they will be able to like or comment on the post or reply to other comments that other users has done. The user also has the options of deleting or editing their comments based on if the comment is connected to their own account.
 
 The user can also click on the others users profiles that has made comments and see more details about the users.
@@ -62,6 +64,8 @@ The user can also click on the others users profiles that has made comments and 
 ![user_profile](./assets/images/user_profile.png)
 
 Each user who has registered an account is able to create their own user profile which is visable to the public if the user has commented on any of the news article posts. In the user profile the users are able to see the news article posts they have created, profile picture and a biography about the user profile.
+
+![edit_button](./assets/images/edit_button.png)
 
 At the bottom of the page there is an edit button so the user can edit themselves on how they want their bigropahy to look like and also choose to upload a profile picture. The users will also be able to see when they became a member on the website aswell.
 
