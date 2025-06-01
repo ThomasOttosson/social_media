@@ -151,11 +151,17 @@ This give the user a simple and clean solution to log out from the website.
 | Homepage Infinity scroll | User is expected to see 6 news article post before the infinity scrolls loads up 6 more posts when they scroll down the page. | Pass |
 | News article post links. | User is expected to be forwarded to the news full article blog posts when they click on the news article posts small text description about the news article. | Pass |
 | User profile and author links. | User is expected to be forwarded to the user profile of the user or auther when they click on those related links/events.  | Pass |
+| User profile edit button. | User is expected to be forwarded to a page where they can edit their profile. | Pass |
+| User profile edit form. | User is expected to be able to edit their username, email, bio upload/change profile picture through textfields and buttons. | Pass |
 | Like button. | User is expected to see the number of total likes of the post increse and add a red color. | Pass |
 | Comment form on the news article posts. | User is expected to add a comment to the news article post through a textfield and button. After the comment process is done the comment will be awaiting an approval from an admin. | Pass |
 | Reply to a comment button. | User is expected to see a new textfield come up under the choosed comment where they can either fulfill the reply or cancel the process through buttons. | Pass |
+| Edit a comment button. | User is expected to a new textfield come up under the choosed comment of their own where they can edit the text. The new edited text will be awaiting an approval from the admin. | Pass |
 | Delete comment button. | User is expected to see a pop up window come up which asks them another time if they are sure or not to the delete the comment. The user can choose to delete the comment or cancel the process through buttons. | Pass |
-
+| Sidebar news article links/buttons. | User is expected to be forwarded to the full news article posts. | Pass |
+| Footer social media link buttons. | User is expected to be forwarded to the related social media platform in a new tab. | Pass |
+| Homepage links. | User is expected to be forwarded to the homepage. | Pass |
+| Homepage news article posts text hover effect. | User is expected to see the small text description about the news articles turn into a yellowcolor. | Pass |
 
 ## Deployment
 
