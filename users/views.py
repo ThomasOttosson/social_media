@@ -51,21 +51,21 @@ def profile(request):
 def public_profile(request, username):
     # Get the user by username or return 404 if not found
     user = get_object_or_404(User, username=username)
-    
+
     # Get the user's profile
     try:
         profile = user.profile
     except User.profile.RelatedObjectDoesNotExist:
         # Create a profile if it doesn't exist
         profile = Profile.objects.create(user=user)
-    
+
     # Get the user's blog posts if they have any
     posts = user.blog_posts.filter(status=1).order_by('-created_on')
-    
+
     context = {
         'profile_user': user,  # Use profile_user to avoid conflict with request.user
         'profile': profile,
         'posts': posts
     }
-    
+
     return render(request, 'users/public_profile.html', context)

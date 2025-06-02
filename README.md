@@ -160,8 +160,28 @@ This give the user a simple and clean solution to log out from the website.
 | Delete comment button. | User is expected to see a pop up window come up which asks them another time if they are sure or not to the delete the comment. The user can choose to delete the comment or cancel the process through buttons. | Pass |
 | Sidebar news article links/buttons. | User is expected to be forwarded to the full news article posts. | Pass |
 | Footer social media link buttons. | User is expected to be forwarded to the related social media platform in a new tab. | Pass |
-| Homepage links. | User is expected to be forwarded to the homepage. | Pass |
 | Homepage news article posts text hover effect. | User is expected to see the small text description about the news articles turn into a yellowcolor. | Pass |
+| Homepage news article posts and sidebar hover effects  | User is expected to see the news article posts either zoom in a bit or move. | Pass |
+| Django Admin system | User admin is expected to be able to use django admin to adjust the relevant data. | Pass |
+
+## More testing
+
+* Pep8: https://pep8ci.herokuapp.com/
+
+* CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
+
+* HTML: https://validator.w3.org/nu/
+
+* Javascript: https://jshint.com/
+
+## Project story.
+
+I got inspired to create this project through a student project at Code Institute called "CodeStar Blog" where i learnt the basics of this project. Since i am very passionate about business/entrepreneurship and i really admired the "CodeStar Blog" project i wanted to combine my passion and the blog project with my sort of twist.
+
+![wireframe](./assets/images/wireframe.webp)
+
+I first created a wireframe to get the visual experience of how it would potenially look like. After that i used my previous experience to build the blog. In this project i found it very hard to implement the infinity scroll function but eventually succeeded and i learnt many more new cool tools to use for example the sidebar, userprofiles etc.
+
 
 ## Deployment
 
@@ -189,4 +209,4 @@ The depoyment though Heroku was made using the following steps:
 ![battleships_heroku_deploy](./assets/images/battleships_deploy_heroku.png)
 
 # Credits
-* The majority of this code was inspired by Code Institute's love running project. Here is a link to Code Institute's website: https://codeinstitute.net/
+* The majority of this code was inspired by Code Institute's love running project and CodeStar Blog. Here is a link to Code Institute's website: https://codeinstitute.net/
