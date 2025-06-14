@@ -12,13 +12,8 @@
       <h1 class="post-title">{{ post.title }}</h1>
       <!-- Post meta information -->
       <div class="post-meta">
-        <span class="post-author"
-          ><a
-            href="{% url 'public_profile' post.author.username %}"
-            class="text-decoration-none author-link"
-            >{{ post.author }}</a
-          ></span
-        >
+        <span class="post-author"><a href="{% url 'public_profile' post.author.username %}"
+            class="text-decoration-none author-link">{{ post.author }}</a></span>
         <span class="post-meta-divider">|</span>
         <span class="post-date">{{ post.created_on }}</span>
       </div>
@@ -40,14 +35,9 @@
       </div>
       <div class="engagement-item">
         {% if user.is_authenticated %}
-        <button
-          class="btn-like {% if user in post.likes.all %}liked{% endif %}"
-          id="like-button"
-          data-post-slug="{{ post.slug }}"
-        >
-          <i
-            class="{% if user in post.likes.all %}fas{% else %}far{% endif %} fa-heart"
-          ></i>
+        <button class="btn-like {% if user in post.likes.all %}liked{% endif %}" id="like-button"
+          data-post-slug="{{ post.slug }}">
+          <i class="{% if user in post.likes.all %}fas{% else %}far{% endif %} fa-heart"></i>
         </button>
         {% else %}
         <i class="far fa-heart"></i>
@@ -65,16 +55,10 @@
 
         {% for comment in comments %} {% if not comment.parent %}
         <div
-          class="comment-item {% if not comment.approved and comment.author == user %}faded{% elif not comment.approved %} d-none{% endif %}"
-        >
+          class="comment-item {% if not comment.approved and comment.author == user %}faded{% elif not comment.approved %} d-none{% endif %}">
           <div class="comment-header">
-            <span class="comment-author"
-              ><a
-                href="{% url 'public_profile' comment.author.username %}"
-                class="text-decoration-none"
-                >{{ comment.author }}</a
-              ></span
-            >
+            <span class="comment-author"><a href="{% url 'public_profile' comment.author.username %}"
+                class="text-decoration-none">{{ comment.author }}</a></span>
             <span class="comment-date">{{ comment.created_on }}</span>
           </div>
           <div class="comment-body" id="comment{{ comment.id }}">
@@ -87,55 +71,30 @@
 
           <div class="comment-actions">
             {% if user.is_authenticated %}
-            <button
-              class="btn btn-reply btn-comment-action"
-              data-comment_id="{{ comment.id }}"
-            >
+            <button class="btn btn-reply btn-comment-action" data-comment_id="{{ comment.id }}">
               Reply
             </button>
             {% endif %} {% if user.is_authenticated and comment.author == user %}
-            <button
-              class="btn btn-edit btn-comment-action"
-              data-comment_id="{{ comment.id }}"
-            >
+            <button class="btn btn-edit btn-comment-action" data-comment_id="{{ comment.id }}">
               Edit
             </button>
-            <button
-              class="btn btn-delete btn-comment-action"
-              data-comment_id="{{ comment.id }}"
-            >
+            <button class="btn btn-delete btn-comment-action" data-comment_id="{{ comment.id }}">
               Delete
             </button>
             {% endif %}
           </div>
 
           <!-- Reply form, hidden by default -->
-          <div
-            class="reply-form-container hidden"
-            id="reply-form-{{ comment.id }}"
-          >
-            <form
-              class="reply-form"
-              method="post"
-              action="{% url 'post_detail' post.slug %}"
-            >
+          <div class="reply-form-container hidden" id="reply-form-{{ comment.id }}">
+            <form class="reply-form" method="post" action="{% url 'post_detail' post.slug %}">
               {% csrf_token %}
               <div class="form-group mb-3">
-                <textarea
-                  name="body"
-                  cols="40"
-                  rows="3"
-                  class="form-control"
-                  placeholder="Write your reply..."
-                ></textarea>
+                <textarea name="body" cols="40" rows="3" class="form-control"
+                  placeholder="Write your reply..."></textarea>
               </div>
               <input type="hidden" name="parent_id" value="{{ comment.id }}" />
               <button type="submit" class="btn btn-sm btn-primary">Submit Reply</button>
-              <button
-                type="button"
-                class="btn btn-sm btn-primary cancel-reply"
-                data-comment_id="{{ comment.id }}"
-              >
+              <button type="button" class="btn btn-sm btn-primary cancel-reply" data-comment_id="{{ comment.id }}">
                 Cancel
               </button>
             </form>
@@ -145,16 +104,10 @@
           <div class="replies-container">
             {% for reply in comment.get_replies %}
             <div
-              class="reply-item {% if not reply.approved and reply.author == user %}faded{% elif not reply.approved %} d-none{% endif %}"
-            >
+              class="reply-item {% if not reply.approved and reply.author == user %}faded{% elif not reply.approved %} d-none{% endif %}">
               <div class="reply-header">
-                <span class="reply-author"
-                  ><a
-                    href="{% url 'public_profile' reply.author.username %}"
-                    class="text-decoration-none"
-                    >{{ reply.author }}</a
-                  ></span
-                >
+                <span class="reply-author"><a href="{% url 'public_profile' reply.author.username %}"
+                    class="text-decoration-none">{{ reply.author }}</a></span>
                 <span class="reply-date">{{ reply.created_on }}</span>
               </div>
               <div class="reply-body" id="comment{{ reply.id }}">
@@ -165,16 +118,10 @@
               <p class="approval">This reply is awaiting approval</p>
               {% endif %} {% if user.is_authenticated and reply.author == user %}
               <div class="reply-actions">
-                <button
-                  class="btn btn-edit btn-comment-action"
-                  data-comment_id="{{ reply.id }}"
-                >
+                <button class="btn btn-edit btn-comment-action" data-comment_id="{{ reply.id }}">
                   Edit
                 </button>
-                <button
-                  class="btn btn-delete btn-comment-action"
-                  data-comment_id="{{ reply.id }}"
-                >
+                <button class="btn btn-delete btn-comment-action" data-comment_id="{{ reply.id }}">
                   Delete
                 </button>
               </div>
@@ -196,16 +143,9 @@
         <form id="commentForm" method="post" class="needs-validation">
           <div class="form-group mb-3">
             {{ comment_form.body.label_tag }}
-            <textarea
-              name="body"
-              cols="40"
-              rows="6"
-              class="form-control"
-              id="id_body"
-              placeholder="Share your thoughts..."
-            >
-{% if comment_form.body.value %}{{ comment_form.body.value }}{% endif %}</textarea
-            >
+            <textarea name="body" cols="40" rows="6" class="form-control" id="id_body"
+              placeholder="Share your thoughts...">
+{% if comment_form.body.value %}{{ comment_form.body.value }}{% endif %}</textarea>
             {% if comment_form.body.errors %}
             <div class="invalid-feedback d-block">
               {% for error in comment_form.body.errors %} {{ error }} {% endfor %}
@@ -232,23 +172,12 @@
 </div>
 
 <!-- Delete confirmation modal -->
-<div
-  class="modal fade"
-  id="deleteModal"
-  tabindex="-1"
-  aria-labelledby="deleteModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         Are you sure you want to delete your comment? This action cannot be

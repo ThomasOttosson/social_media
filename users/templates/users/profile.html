@@ -11,9 +11,11 @@
         <div class="card-body">
           <div class="media d-flex mb-4">
             {% if user.profile.avatar %}
-            <img class="rounded-circle account-img mr-3" src="{{ user.profile.avatar.url }}" alt="{{ user.username }}" />
+            <img class="rounded-circle account-img mr-3" src="{{ user.profile.avatar.url }}"
+              alt="{{ user.username }}" />
             {% else %}
-            <img class="rounded-circle account-img mr-3" src="{% static 'images/default.jpg' %}" alt="Default Profile" />
+            <img class="rounded-circle account-img mr-3" src="{% static 'images/default.jpg' %}"
+              alt="Default Profile" />
             {% endif %}
             <div class="media-body ml-3">
               <h2 class="account-heading">{{ user.username }}</h2>

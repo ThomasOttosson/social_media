@@ -9,17 +9,11 @@
         <div class="card-body">
           <div class="media d-flex mb-4">
             {% if profile.avatar %}
-            <img
-              class="rounded-circle account-img mr-3"
-              src="{{ profile.avatar.url }}"
-              alt="{{ profile_user.username }}"
-            />
+            <img class="rounded-circle account-img mr-3" src="{{ profile.avatar.url }}"
+              alt="{{ profile_user.username }}" />
             {% else %}
-            <img
-              class="rounded-circle account-img mr-3"
-              src="{% static 'images/default.jpg' %}"
-              alt="Default Profile"
-            />
+            <img class="rounded-circle account-img mr-3" src="{% static 'images/default.jpg' %}"
+              alt="Default Profile" />
             {% endif %}
             <div class="media-body ml-3">
               <h2 class="account-heading">{{ profile_user.username }}</h2>
@@ -37,10 +31,7 @@
             <h3 class="border-bottom pb-2">Recent Posts</h3>
             <div class="list-group">
               {% for post in posts %}
-              <a
-                href="{% url 'post_detail' post.slug %}"
-                class="list-group-item list-group-item-action"
-              >
+              <a href="{% url 'post_detail' post.slug %}" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1">{{ post.title }}</h5>
                   <small>{{ post.created_on|date:"F d, Y" }}</small>
@@ -62,11 +53,9 @@
           <div class="mt-4 text-center">
             <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
           </div>
-          {% endif %} {% if user.is_authenticated and user.username ==  profile_user.username %}
+          {% endif %} {% if user.is_authenticated and user.username == profile_user.username %}
           <div class="mt-4 text-center">
-            <a href="{% url 'profile' %}" class="btn btn-primary"
-              >Edit Your Profile</a
-            >
+            <a href="{% url 'profile' %}" class="btn btn-primary">Edit Your Profile</a>
           </div>
           {% endif %}
         </div>
