@@ -1,21 +1,19 @@
-from django.contrib import admin
-from .models import About, CollaborateRequest
-from django_summernote.admin import SummernoteModelAdmin
+from django.contrib import admin  # Import Django admin module
+from django_summernote.admin import SummernoteModelAdmin  # Import Summernote
+
+from .models import (  # Import models to register admin
+    About,
+    CollaborateRequest,
+)
 
 
-@admin.register(About)
+@admin.register(About)  # Register About model with admin site
 class AboutAdmin(SummernoteModelAdmin):
+    # Enable Summernote editor for the 'content' field
     summernote_fields = ('content',)
 
-# Note: admin.ModelAdmin is the standard way of registering
-#       our model with the admin panel. We do it differently
-#       above because we are supplying Summernote fields.
-#       If you want to customise the admin panel view in your
-#       own projects, then inherit from admin.ModelAdmin like
-#       we do below.
 
-
-@admin.register(CollaborateRequest)
+@admin.register(CollaborateRequest)  # Register CollaborateRequest model admin
 class CollaborateRequestAdmin(admin.ModelAdmin):
-
-    list_display = ('message', 'read',)
+    # Display these fields in the admin list view
+    list_display = ('message', 'read')
