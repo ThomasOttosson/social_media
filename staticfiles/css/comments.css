@@ -1,0 +1,66 @@
+/* Comment Reply Styles */
+.replies-container {
+    margin-left: 30px;
+    margin-top: 15px;
+    border-left: 2px solid #e0e0e0;
+    padding-left: 15px;
+}
+
+.reply-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.reply-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.reply-author {
+    font-weight: bold;
+}
+
+.reply-date {
+    color: #6c757d;
+}
+
+.reply-body {
+    margin-bottom: 10px;
+}
+
+.reply-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.reply-form-container.hidden {
+    display: none;
+}
+
+.btn-reply {
+    background-color: var(--button-color);
+    color: var(--primary-text-color);
+    border-color: var(--button-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+}
+
+.btn-reply:hover {
+    background-color: var(--button-hover-color);
+    color: var(--primary-text-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Faded style for unapproved replies */
+.reply-item.faded {
+    opacity: 0.6;
+}
