@@ -2,58 +2,84 @@
 
 {% for post in post_list %}
 <div class="col-12 htmx-added" style="max-width: 650px; margin: 0 auto;">
-    <div class="card mb-4">
+    <article class="card mb-4">
         <div class="card-body">
             <div class="image-container">
                 {% if "placeholder" in post.featured_image.url %}
-                <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                    <img class="card-img-top" 
+                         src="{% static 'images/default.jpg' %}" 
+                         alt="Default placeholder image for {{ post.title }}">
                 {% else %}
-                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+                    <img class="card-img-top" 
+                         src="{{ post.featured_image.url }}" 
+                         alt="Featured image for {{ post.title }}">
                 {% endif %}
                 <div class="image-flash">
-                    <p class="author">Author: <a href="{% url 'public_profile' post.author.username %}"
-                            class="text-decoration-none">{{ post.author }}</a></p>
+                    <p class="author">
+                        Author: 
+                        <a href="{% url 'public_profile' post.author.username %}"
+                           class="text-decoration-none"
+                           aria-label="View {{ post.author }}'s profile">
+                            {{ post.author }}
+                        </a>
+                    </p>
                 </div>
             </div>
-            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+            
+            <a href="{% url 'post_detail' post.slug %}" 
+               class="post-link"
+               aria-label="Read full post: {{ post.title }}">
                 <h2 class="card-title">{{ post.title }}</h2>
                 <p class="card-text">{{ post.excerpt }}</p>
             </a>
 
-            <hr />
+            <hr>
 
-            <p class="card-text text-muted h6 d-flex align-items-center justify-content-between">
-                {{ post.created_on}}
-                <span class="ms-2">
+            <div class="card-text text-muted h6 d-flex align-items-center justify-content-between">
+                <time datetime="{{ post.created_on|date:'c' }}">
+                    {{ post.created_on }}
+                </time>
+                <div class="ms-2 d-flex align-items-center">
                     {% if user.is_authenticated %}
-                    <button class="btn-like card-like-btn {% if user in post.likes.all %}liked{% endif %}"
-                        data-post-slug="{{ post.slug }}">
-                        <i class="{% if user in post.likes.all %}fas{% else %}far{% endif %} fa-heart"></i>
-                    </button>
+                        <button type="button"
+                                class="btn-like card-like-btn {% if user in post.likes.all %}liked{% endif %}"
+                                data-post-slug="{{ post.slug }}"
+                                aria-label="{% if user in post.likes.all %}Unlike{% else %}Like{% endif %} this post"
+                                aria-pressed="{% if user in post.likes.all %}true{% else %}false{% endif %}">
+                            <i class="{% if user in post.likes.all %}fas{% else %}far{% endif %} fa-heart"
+                               aria-hidden="true"></i>
+                        </button>
                     {% else %}
-                    <i class="far fa-heart"></i>
+                        <i class="far fa-heart" aria-hidden="true"></i>
                     {% endif %}
-                    <span class="likes-count">{{ post.number_of_likes }}</span>
-                </span>
-            </p>
+                    <span class="likes-count ms-1" aria-label="Number of likes">
+                        {{ post.number_of_likes }}
+                    </span>
+                </div>
+            </div>
         </div>
-    </div>
+    </article>
 </div>
-
 {% endfor %}
 
 {% if page_obj.has_next %}
-<!-- HTMX Infinite Scroll Trigger for next page -->
-<div hx-get="{% url 'home' %}?page={{ page_obj.next_page_number }}" hx-trigger="revealed" hx-swap="outerHTML"
-    class="text-center my-4">
-    <div class="spinner-border text-warning htmx-indicator" role="status">
-        <span class="visually-hidden">Loading...</span>
+    <!-- HTMX Infinite Scroll Trigger for next page -->
+    <div hx-get="{% url 'home' %}?page={{ page_obj.next_page_number }}" 
+         hx-trigger="revealed" 
+         hx-swap="outerHTML"
+         class="text-center my-4"
+         role="status"
+         aria-live="polite">
+        <div class="spinner-border text-warning htmx-indicator" 
+             role="status"
+             aria-hidden="true">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2 htmx-indicator">Loading more posts...</p>
     </div>
-    <p class="mt-2 htmx-indicator">Loading more posts...</p>
-</div>
 {% else %}
-<!-- No more posts message - only shown when there are no more pages -->
-<div class="col-12 text-center my-4 no-more-posts">
-    <p>That is all, no more posts found</p>
-</div>
+    <!-- No more posts message - only shown when there are no more pages -->
+    <div class="col-12 text-center my-4 no-more-posts">
+        <p>That's all, no more posts found</p>
+    </div>
 {% endif %}

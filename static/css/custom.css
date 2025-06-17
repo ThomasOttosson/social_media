@@ -163,3 +163,52 @@ body, .main-bg, .light-bg, .card, .masthead-text {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+textarea:focus {
+    outline: none;           /* remove the default focus outline */
+    border-width: 0 !important;
+    border-color: transparent !important;
+    box-shadow: none !important;  /* override Bootstrap’s focus ring */
+  }
+
+  /* about page css */
+  /* Hero Section Styles */
+.hero-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+.hero-title {
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card {
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Animation for content */
+.animated-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

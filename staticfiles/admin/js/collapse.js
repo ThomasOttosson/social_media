@@ -1,6 +1,8 @@
 /*global gettext*/
-'use strict';
-{
+/*jshint esversion: 6 */
+(function() {
+    'use strict';
+    
     window.addEventListener('load', function() {
         // Add anchor tag for Show/Hide link
         const fieldsets = document.querySelectorAll('fieldset.collapse');
@@ -40,4 +42,4 @@
             el.addEventListener('click', toggleFunc);
         });
     });
-}
+})();

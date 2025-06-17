@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 // This file provides minimal JavaScript support for htmx infinite scrolling
 document.addEventListener('DOMContentLoaded', function() {
     // Hide the standard pagination if it exists
@@ -9,21 +11,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Log initialization
     console.log('HTMX infinite scroll initialized');
     
-    // Listen for htmx:beforeRequest events to show loading indicator
-    document.body.addEventListener('htmx:beforeRequest', function(event) {
-        // Check if the target has the infinite scroll trigger
-        if (event.detail.target.hasAttribute('hx-trigger') && 
-            event.detail.target.getAttribute('hx-trigger').includes('revealed')) {
+    // Helper function to check if target has infinite scroll trigger
+    function hasInfiniteScrollTrigger(target) {
+        return target.hasAttribute('hx-trigger') && 
+               target.getAttribute('hx-trigger').includes('revealed');
+    }
+    
+    // Helper function to handle before request
+    function handleBeforeRequest(event) {
+        if (hasInfiniteScrollTrigger(event.detail.target)) {
             console.log('Loading more posts...');
             // You can add additional loading indicator logic here if needed
         }
-    });
+    }
     
-    // Listen for htmx:afterSwap events to update UI after content is loaded
-    document.body.addEventListener('htmx:afterSwap', function(event) {
-        // Check if the target has the infinite scroll trigger
-        if (event.detail.target.hasAttribute('hx-trigger') && 
-            event.detail.target.getAttribute('hx-trigger').includes('revealed')) {
+    // Helper function to handle after swap
+    function handleAfterSwap(event) {
+        if (hasInfiniteScrollTrigger(event.detail.target)) {
             console.log('New content loaded via infinite scroll');
             
             // Check if the response contains the 'no more posts' message
@@ -36,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
-    });
+    }
     
-    // Listen for htmx:responseError events to handle errors
-    document.body.addEventListener('htmx:responseError', function(event) {
+    // Helper function to handle response errors
+    function handleResponseError(event) {
         console.error('Error loading more content:', event.detail.error);
         
         // You could display a custom error message here
@@ -48,5 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
             errorContainer.textContent = 'Failed to load more posts. Please try again later.';
             errorContainer.style.display = 'block';
         }
-    });
+    }
+    
+    // Listen for htmx:beforeRequest events to show loading indicator
+    document.body.addEventListener('htmx:beforeRequest', handleBeforeRequest);
+    
+    // Listen for htmx:afterSwap events to update UI after content is loaded
+    document.body.addEventListener('htmx:afterSwap', handleAfterSwap);
+    
+    // Listen for htmx:responseError events to handle errors
+    document.body.addEventListener('htmx:responseError', handleResponseError);
 });

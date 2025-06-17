@@ -1,25 +1,25 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 
 <!-- index.html content starts here -->
 <div class="container-fluid container">
-  <div class="row">
-    <!-- Blog Entries Column -->
-    <div class="col-md-8 mt-3 left">
-      <div class="row" id="posts-container">
-        {% include "blog/includes/post_list_content.html" %}
-      </div>
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            <div class="row" id="posts-container">
+                {% include "blog/includes/post_list_content.html" %}
+            </div>
 
-      <!-- Removed duplicate HTMX Infinite Scroll Trigger - now handled in post_list_content.html -->
+            <!-- Error container for failed loads -->
+            <div id="error-container" class="text-center my-4 text-danger hidden"></div>
+        </div>
 
-      <!-- Error container for failed loads -->
-      <div id="error-container" class="text-center my-4 text-danger hidden"></div>
+        <!-- Sidebar Column -->
+        <div class="col-md-4 mt-3">
+            {% include "blog/includes/sidebar.html" %}
+        </div>
     </div>
-
-    <!-- Sidebar Column -->
-    <div class="col-md-4 mt-3">
-      {% include "blog/includes/sidebar.html" %}
-    </div>
-  </div>
 </div>
 
 <!-- index.html content ends here -->

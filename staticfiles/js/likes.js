@@ -1,24 +1,20 @@
+/* jshint esversion: 6 */
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Handle like button on post detail page
-    const detailLikeButton = document.getElementById('like-button');
-    
-    if (detailLikeButton) {
-        detailLikeButton.addEventListener('click', function(event) {
-            handleLikeButtonClick(this, '#likes-count', event);
-        });
-    }
-    
-    // Handle like buttons on blog cards
-    const cardLikeButtons = document.querySelectorAll('.card-like-btn');
-    
-    if (cardLikeButtons.length > 0) {
-        cardLikeButtons.forEach(button => {
-            button.addEventListener('click', function(event) {
-                // Find the closest likes-count element within the same card
-                const likesCountElement = this.closest('p').querySelector('.likes-count');
-                handleLikeButtonClick(this, likesCountElement, event);
-            });
-        });
+    // Function to get CSRF token from cookies
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
     }
     
     // Function to handle like button clicks
@@ -63,19 +59,31 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error:', error));
     }
     
-    // Function to get CSRF token from cookies
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
+    // Helper function to handle detail like button click
+    function handleDetailLikeClick(event) {
+        handleLikeButtonClick(this, '#likes-count', event);
+    }
+    
+    // Helper function to handle card like button click
+    function handleCardLikeClick(event) {
+        // Find the closest likes-count element within the same card
+        const likesCountElement = this.closest('p').querySelector('.likes-count');
+        handleLikeButtonClick(this, likesCountElement, event);
+    }
+    
+    // Handle like button on post detail page
+    const detailLikeButton = document.getElementById('like-button');
+    
+    if (detailLikeButton) {
+        detailLikeButton.addEventListener('click', handleDetailLikeClick);
+    }
+    
+    // Handle like buttons on blog cards
+    const cardLikeButtons = document.querySelectorAll('.card-like-btn');
+    
+    if (cardLikeButtons.length > 0) {
+        cardLikeButtons.forEach(button => {
+            button.addEventListener('click', handleCardLikeClick);
+        });
     }
 });

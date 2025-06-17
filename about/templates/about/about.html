@@ -9,165 +9,162 @@
 <!-- Loads crispy-forms template tags for form styling -->
 
 <!-- Hero Section -->
-<div class="container-fluid p-0"> <!-- Full-width container with no padding -->
-  <div class="row g-0"> <!-- Bootstrap row with no gutters -->
-    <div class="col-12 position-relative overflow-hidden"> <!-- Single column taking full width, with overlay setup -->
+<div class="container-fluid p-0">
+    <!-- Full-width container with no padding -->
+    <div class="row g-0">
+        <!-- Bootstrap row with no gutters -->
+        <div class="col-12 position-relative overflow-hidden">
+            <!-- Single column taking full width, with overlay setup -->
 
-      <!-- Hero Image -->
-      <img src="{% static 'images/business_hero.jpg' %}" class="img-fluid w-100 hero-image" alt="Business News" />
+            <!-- Hero Image -->
+            <img src="{% static 'images/business_hero.jpg' %}" 
+                 class="img-fluid w-100 hero-image" 
+                 alt="Business News">
 
-      <!-- Gradient Overlay with Text -->
-      <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="
-          background: linear-gradient(
-            135deg,
-            rgba(0, 0, 0, 0.8) 0%,
-            rgba(0, 0, 0, 0.5) 100%
-          );
-        "> <!-- Creates semi-transparent dark overlay for contrast -->
+            <!-- Gradient Overlay with Text -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center hero-overlay">
+                <!-- Creates semi-transparent dark overlay for contrast -->
 
-        <div class="container"> <!-- Inner container to position the overlay content -->
-          <div class="row">
-            <div class="col-12 col-md-10 offset-md-1 text-center text-white"> <!-- Centered text block -->
+                <div class="container">
+                    <!-- Inner container to position the overlay content -->
+                    <div class="row">
+                        <div class="col-12 col-md-10 offset-md-1 text-center text-white">
+                            <!-- Centered text block -->
 
-              <!-- Main Heading -->
-              <h1 class="display-3 fw-bold mb-4" style="
-                  letter-spacing: 1px;
-                  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-                ">
-                Business News 4 All
-              </h1>
+                            <!-- Main Heading -->
+                            <h1 class="display-3 fw-bold mb-4 hero-title">
+                                Business News 4 All
+                            </h1>
 
-              <!-- Subheading -->
-              <p class="lead fs-4 mb-4 fw-light">
-                We are a newsletter site related to business events/stories such
-                as:
-              </p>
+                            <!-- Subheading -->
+                            <p class="lead fs-4 mb-4 fw-light">
+                                We are a newsletter site related to business events/stories such as:
+                            </p>
 
-              <!-- Hero Features Grid -->
-              <div class="row mb-4 g-4">
+                            <!-- Hero Features Grid -->
+                            <div class="row mb-4 g-4">
 
-                <!-- Column 1 -->
-                <div class="col-md-4">
-                  <div class="p-3 rounded hero-card" onmouseover="this.style.transform='translateY(-5px)'"
-                    onmouseout="this.style.transform='translateY(0)'"> <!-- Hover animation for card lift -->
-                    <ul class="list-unstyled mb-0">
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Stories
-                      </li>
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Case studies
-                      </li>
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        History
-                      </li>
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Deals
-                      </li>
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Funding
-                      </li>
-                    </ul>
-                  </div>
+                                <!-- Column 1 -->
+                                <div class="col-md-4">
+                                    <div class="p-3 rounded hero-card">
+                                        <!-- Hover animation for card lift -->
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Stories
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Case studies
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                History
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Deals
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Funding
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Column 2 -->
+                                <div class="col-md-4">
+                                    <div class="p-3 rounded hero-card">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Management
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Commercials
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                New inventions
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Litigation
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Column 3 -->
+                                <div class="col-md-4">
+                                    <div class="p-3 rounded hero-card">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Accounting &amp; bookkeeping
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Government Contracts
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Interviews
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                                Events
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- CTA Message -->
+                            <p class="lead fs-5 fw-light mt-4 mb-0 animated-content">
+                                If you have news that you want to share with us, 
+                                contact us in the form below.
+                            </p>
+
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Column 2 -->
-                <div class="col-md-4">
-                  <div class="p-3 rounded hero-card" onmouseover="this.style.transform='translateY(-5px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-                    <ul class="list-unstyled mb-0">
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Management
-                      </li>
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Commercials
-                      </li>
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        New inventions
-                      </li>
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Litigation
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Column 3 -->
-                <div class="col-md-4">
-                  <div class="p-3 rounded hero-card" onmouseover="this.style.transform='translateY(-5px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-                    <ul class="list-unstyled mb-0">
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Accounting & bookkeeping
-                      </li>
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Government Contracts
-                      </li>
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Interviews
-                      </li>
-                      <li class="mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i>
-                        Events
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- CTA Message -->
-              <p class="lead fs-5 fw-light mt-4 mb-0 animated-content">
-                If you have news that you want to share with us, contact us in
-                the form below.
-              </p>
 
             </div>
-          </div>
+
         </div>
-
-      </div>
-
     </div>
-  </div>
 </div>
-
-<!-- Hero and animation styles moved to custom.css -->
 
 <!-- Contact Form Section -->
 <div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-6 my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 my-5">
 
-      <!-- Section Header -->
-      <h2>Let's collaborate!</h2>
-      <p>
-        I believe in the power of shared knowledge and collective effort.
-        Whether you have a project in mind, wish to co-author an article, or
-        simply want to brainstorm some ideas, I'm excited to hear from you. Fill
-        out the form and we can get the ball rolling!
-      </p>
+            <!-- Section Header -->
+            <h2>Let's collaborate!</h2>
+            <p>
+                I believe in the power of shared knowledge and collective effort.
+                Whether you have a project in mind, wish to co-author an article, or
+                simply want to brainstorm some ideas, I'm excited to hear from you. 
+                Fill out the form and we can get the ball rolling!
+            </p>
 
-      <!-- Collaboration Form -->
-      <form method="post">
-        {{ collaborate_form | crispy }} <!-- Render Django form with crispy-forms styling -->
-        {% csrf_token %} <!-- Security token for POST request -->
-        <button class="btn btn-warning" type="submit">Submit</button> <!-- Submit button -->
-      </form>
+            <!-- Collaboration Form -->
+            <form method="post">
+                {{ collaborate_form|crispy }}
+                <!-- Render Django form with crispy-forms styling -->
+                {% csrf_token %}
+                <!-- Security token for POST request -->
+                <button class="btn btn-warning" type="submit">Submit</button>
+                <!-- Submit button -->
+            </form>
 
+        </div>
     </div>
-  </div>
 </div>
 
-{% endblock content %} <!-- End of content block -->
+{% endblock content %}
