@@ -208,5 +208,19 @@ The depoyment though Heroku was made using the following steps:
 
 ![battleships_heroku_deploy](./assets/images/battleships_deploy_heroku.png)
 
+5. Additional point:
+
+![config_vars](./assets/images/new_secretkey.png)
+
+If a user wants to use this project and deploy it to Heroku then they need to add a key value par in the config var at heroku with the following keys:
+
+* CLOUDINARY_URL
+
+* DATABASE_URL
+
+* SECRET_KEY
+
+If a user wants to run the project locally then they should add the same keys and values to an env.py file in the root directory.
+
 # Credits
 * The majority of this code was inspired by Code Institute's love running project and CodeStar Blog. Here is a link to Code Institute's website: https://codeinstitute.net/
